@@ -1,0 +1,20 @@
+<h2>Tip Calculator</h2>
+
+<form #tipForm="ngForm" (ngSubmit)="onSubmit()">
+  <label>Cost of Service:</label>
+  <input type="number" name="cost" [(ngModel)]="cost" required />
+
+  <p>How was the service?</p>
+  <label><input type="radio" name="quality" value="okey" [(ngModel)]="quality" /> Okey (15%)</label><br />
+  <label><input type="radio" name="quality" value="good" [(ngModel)]="quality" /> Good (18%)</label><br />
+  <label><input type="radio" name="quality" value="excellent" [(ngModel)]="quality" /> Excellent (20%)</label>
+
+  <p>
+    <label>
+      <input type="checkbox" name="roundUp" [(ngModel)]="roundUp" />
+      Round up tip?
+    </label>
+  </p>
+
+  <button type="submit" [disabled]="!tipForm.form.valid">Calculate Tip</button>
+</form>
